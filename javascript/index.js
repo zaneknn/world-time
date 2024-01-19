@@ -22,6 +22,17 @@ function updateTime() {
       `h:mm:ss [<small>]A[</small>] `
     );
   }
+  //NewYork
+  let newYorkElement = document.querySelector("#new-york");
+  if (newYorkElement) {
+    let newYorkDateElement = document.querySelector("#new-york .date");
+    let newYorkTimeElement = document.querySelector("#new-york .time");
+    let newYorkTime = moment().tz(`America/New_York`);
+    newYorkDateElement.innerHTML = newYorkTime.format("MMMM Do YYYY");
+    newYorkTimeElement.innerHTML = newYorkTime.format(
+      `h:mm:ss [<small>]A[</small>] `
+    );
+  }
 }
 function updateCity(event) {
   let cityTimeZone = event.target.value;
@@ -40,7 +51,8 @@ function updateCity(event) {
     <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
     "A"
   )}</small></div>
-  </div>
+  </div>  </div>
+  <a href="https://world-clock-js-project.netlify.app">All cities</a>
   `;
 }
 
